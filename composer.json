@@ -1,0 +1,20 @@
+{
+    "name": "demogorgorn/yii2-jquery-sortable",
+    "description": "Create a flexible, opinionated sorting plugin for jQuery",
+    "keywords": ["yii2", "extension", "widget", "sortable", "range", "jquery", "bootstrap"],
+    "homepage": "https://github.com/demogorgorn/yii2-jquery-sortable",
+    "type": "yii2-extension",
+    "license": "BSD 3-Clause",
+    "authors": [
+        {
+            "name": "Oleg Martemjanov",
+            "email": "demogorgorn@gmail.com",
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "demogorgorn\\jquerysortable\\": ""
+        }
+    }
+}
