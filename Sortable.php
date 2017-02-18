@@ -83,7 +83,7 @@ class Sortable extends \yii\base\Widget
         $id = $this->options['id'];
         $clientOptions = Json::encode($this->clientOptions, JSON_FORCE_OBJECT);
 
-        $js = '$("' . $id . '").sortable(' . $clientOptions . ');';
+        $js = '$(#"' . $id . '").sortable(' . $clientOptions . ');';
 
         $view->registerJs($js);
     }
