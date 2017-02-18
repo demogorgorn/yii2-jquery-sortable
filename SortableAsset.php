@@ -18,7 +18,4 @@ class SortableAsset extends \yii\web\AssetBundle
         'js/jquery-sortable-min.js'
     ];
 	
-	public $css = [
-        'css/jquery-sortable.css'
-    ];
 }
