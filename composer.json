@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Oleg Martemjanov",
-            "email": "demogorgorn@gmail.com",
+            "email": "demogorgorn@gmail.com"
         }
     ],
     "minimum-stability": "dev",
