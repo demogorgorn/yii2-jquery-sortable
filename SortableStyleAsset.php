@@ -11,15 +11,11 @@ namespace demogorgorn\jquerysortable;
  * @author Oleg Martemjanov <demogorgorn@gmail.com>
  * @since 1.0
  */
-class SortableAsset extends \yii\web\AssetBundle
+class SortableStyleAsset extends \yii\web\AssetBundle
 {
     public $sourcePath = '@demogorgorn/jquerysortable/assets/';
-    public $js = [
-        'js/jquery-sortable-min.js'
-    ];
-
-    public $depends = [
-        'yii\web\JqueryAsset',
+    public $css = [
+        'css/jquery-sortable.css'
     ];
 	
 }
