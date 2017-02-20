@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright Copyright &copy; Oleg Martemjanov, 2017
- * @package yii2-sortable
+ * @package yii2-jquery-sortable
  * @version 1.0
  */
 namespace demogorgorn\jquerysortable;
@@ -31,6 +31,7 @@ class Sortable extends \yii\base\Widget
     public $items = [];
 
     public $listTag = 'ul';
+
     /**
      * Initializes the widget
      */
@@ -40,9 +41,8 @@ class Sortable extends \yii\base\Widget
         if (!isset($this->options['id'])) 
             $this->options['id'] = $this->getId();
         $this->registerAssets();
-        
-        echo Html::beginTag($this->listTag, $this->options);
     }
+
     /**
      * Runs the widget
      *
@@ -50,28 +50,43 @@ class Sortable extends \yii\base\Widget
      */
     public function run()
     {
-        echo $this->renderItems();
-        echo Html::endTag($this->listTag);
+        echo $this->createList($this->items, $this->options);
     }
+
     /**
      * Render the list items for the sortable widget
      *
      * @return string 
      */
-    protected function renderItems()
-    {
-        $items = '';
-        $disabled = false;
-        
-        foreach ($this->items as $item) {
-            $options = ArrayHelper::getValue($item, 'options', []);
-                      
-            $content = ArrayHelper::getValue($item, 'content', '');
-            
-            $items .= Html::tag('li', $content, $options) . PHP_EOL;
+    public function createList($items, $options = []) {
+
+        $htmlTree = Html::beginTag($this->listTag, $options);
+
+        foreach ($items as $item) {
+            $htmlTree .= $this->renderItem($item);
         }
-        return $items;
+        $htmlTree .= Html::endTag($this->listTag);
+
+        return $htmlTree;
     }
+
+    public function renderItem($item)
+    {
+        if (!isset($item['content'])) {
+            throw new InvalidConfigException("The 'content' option is required.");
+        }
+
+        $content = ArrayHelper::getValue($item, 'content', '');
+        $options = ArrayHelper::getValue($item, 'options', []);
+
+        $items = "";
+        if (isset($item['items']) and !empty($item['items'])) {
+            $items = $this->createList($item['items']);
+        }
+
+        return Html::tag('li', $content . $items, $options);
+    }
+
     /**
      * Register client assets
      */
