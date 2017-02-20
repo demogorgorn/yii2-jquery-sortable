@@ -34,7 +34,8 @@ class Sortable extends \yii\base\Widget
 
     /**
      * var bool | string If false drag handle is disabled.
-     * а you want to use drag handle just specify it's html code: e.g., <i class="fa fa-bars"></i>
+     * If you want to use drag handle just specify it's html code: e.g., <i class="fa fa-bars"></i>
+     * Please notice that you should set the handle param in clientOptions manually. E.g. '.fa-bars'
      */
     public $useDragHandle = false;
 
