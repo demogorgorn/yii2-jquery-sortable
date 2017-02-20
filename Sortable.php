@@ -33,6 +33,12 @@ class Sortable extends \yii\base\Widget
     public $listTag = 'ul';
 
     /**
+     * var bool | string If false drag handle is disabled.
+     * а you want to use drag handle just specify it's html code: e.g., <i class="fa fa-bars"></i>
+     */
+    public $useDragHandle = false;
+
+    /**
      * @var bool create nested list items.
      * By default Sortable support nested lists only in cases when these nested lists were defined when Sortable was initialized.
      */
@@ -95,6 +101,10 @@ class Sortable extends \yii\base\Widget
                 $items = $this->createList([]);
             }
 
+        }
+
+        if ($this->useDragHandle !== false) {
+            $content = $this->useDragHandle . $content;
         }
 
         return Html::tag('li', $content . $items, $options);
