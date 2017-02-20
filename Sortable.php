@@ -33,6 +33,12 @@ class Sortable extends \yii\base\Widget
     public $listTag = 'ul';
 
     /**
+     * @var bool create nested list items.
+     * By default Sortable support nested lists only in cases when these nested lists were defined when Sortable was initialized.
+     */
+    public $autoNestedEnabled = false;
+
+    /**
      * Initializes the widget
      */
     public function init()
@@ -79,9 +85,16 @@ class Sortable extends \yii\base\Widget
         $content = ArrayHelper::getValue($item, 'content', '');
         $options = ArrayHelper::getValue($item, 'options', []);
 
-        $items = "";
-        if (isset($item['items']) and !empty($item['items'])) {
+        $items = '';
+
+        if (isset($item['items']) ) {
             $items = $this->createList($item['items']);
+        } else {
+
+            if ($this->autoNestedEnabled == true) {
+                $items = $this->createList([]);
+            }
+
         }
 
         return Html::tag('li', $content . $items, $options);
