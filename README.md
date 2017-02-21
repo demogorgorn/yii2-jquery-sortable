@@ -14,6 +14,30 @@ The view:
 <?php 
 use demogorgorn\jquerysortable\Sortable;
 
+$items = [
+        [
+            'content' => 'First'
+            'options' => ['class' => 'panel', 'data-id' => 12]
+        ],
+        [
+            'content' => 'Second'
+            'options' => ['class' => 'panel', 'data-id' => 13],
+            'items' => [
+                [
+                    'content' => 'Nested 1'
+                    'options' => ['class' => 'panel', 'data-id' => 14]
+                ],
+                [
+                    'content' => 'Nested 2'
+                    'options' => ['class' => 'another class']
+                ],
+
+            ]
+
+        ],
+        
+    ];
+
 echo Sortable::widget([
 
     'listTag' => 'ol',
