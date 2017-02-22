@@ -7,8 +7,6 @@ The answer is: nested lists. None of the other solutions had a decent support fo
 
 ### Basic Example
 
-Example of usage of the widget with a custom widget (in this case Select2 widget).
-
 The view:
 ```php
 <?php 
@@ -71,6 +69,7 @@ items | array of the sortable items configuration for rendering elements within 
 listTag | the tag to use for a container | String
 useDragHandle | whether the handle for drag should be used. If you want to use drag handle just specify it's html code: e.g., _<i class="fa fa-bars"></i>_. Please notice that you should set the handle param in clientOptions manually. E.g. '.fa-bars'. By default is set to false. | Boolean / String
 autoNestedEnabled | enable auto nested mode. By default Sortable support nested lists only in cases when these nested lists were defined when Sortable was initialized. | Boolean
+appendElement | HTML element which will be appended to each list item. To disable set it to false. | Boolean / String
 
 *Please note You can set the following properties:*
 
