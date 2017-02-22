@@ -45,6 +45,8 @@ class Sortable extends \yii\base\Widget
      */
     public $autoNestedEnabled = false;
 
+    public $appendElement = false;
+
     /**
      * Initializes the widget
      */
@@ -106,6 +108,10 @@ class Sortable extends \yii\base\Widget
 
         if ($this->useDragHandle !== false) {
             $content = $this->useDragHandle . $content;
+        }
+
+        if ($this->appendElement !== false) {
+            $content .= $this->appendElement;
         }
 
         return Html::tag('li', $content . $items, $options);
