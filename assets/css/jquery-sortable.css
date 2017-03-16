@@ -17,7 +17,7 @@ ol.vertical {
 /* line 13, /Users/jonasvonandrian/jquery-sortable/source/css/jquery-sortable.css.sass */
 ol.vertical li {
   display: block;
-  margin: 0;
+  margin: 5px 0;
   padding: 5px;
   border: 1px solid #cccccc;
   color: #0088cc;
